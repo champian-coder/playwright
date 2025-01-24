@@ -1,0 +1,57 @@
+Failed to click on locator: locator('#addNewRecordButton')
+❌ Unexpected error for valid record: john.doe@example.com locator.waitFor: Target page, context or browser has been closed
+Call log:
+  - waiting for locator('#addNewRecordButton') to be visible
+
+    at ElementUtils.click (D:\withdraw\PlayWright\src\helper\utils\element-utils.ts:21:21)
+    at ElementsPage.addNewRecord (D:\withdraw\PlayWright\src\pages\elementsPage.ts:20:22)
+    at D:\withdraw\PlayWright\src\tests\elements.test.ts:195:32
+    at D:\withdraw\PlayWright\src\tests\elements.test.ts:191:14 {
+  [Symbol(step)]: {
+    stepId: 'pw:api@9',
+    location: {
+      file: 'D:\\withdraw\\PlayWright\\src\\helper\\utils\\element-utils.ts',
+      line: 21,
+      column: 21,
+      function: 'ElementUtils.click'
+    },
+    category: 'pw:api',
+    title: 'locator.waitFor(#addNewRecordButton)',
+    apiName: 'locator.waitFor',
+    params: {
+      selector: '#addNewRecordButton',
+      strict: true,
+      omitReturnValue: true,
+      state: 'visible',
+      timeout: 5000
+    },
+    boxedStack: undefined,
+    steps: [],
+    complete: [Function: complete],
+    endWallTime: 1737689062081,
+    error: {
+      message: 'Error: locator.waitFor: Target page, context or browser has been closed\n' +
+        'Call log:\n' +
+        "\x1B[2m  - waiting for locator('#addNewRecordButton') to be visible\x1B[22m\n",
+      stack: 'Error: locator.waitFor: Target page, context or browser has been closed\n' +
+        'Call log:\n' +
+        "\x1B[2m  - waiting for locator('#addNewRecordButton') to be visible\x1B[22m\n" +
+        '\n' +
+        '    at ElementUtils.click (D:\\withdraw\\PlayWright\\src\\helper\\utils\\element-utils.ts:21:21)\n' +
+        '    at ElementsPage.addNewRecord (D:\\withdraw\\PlayWright\\src\\pages\\elementsPage.ts:20:22)\n' +
+        '    at D:\\withdraw\\PlayWright\\src\\tests\\elements.test.ts:195:32\n' +
+        '    at D:\\withdraw\\PlayWright\\src\\tests\\elements.test.ts:191:14',
+      cause: undefined
+    }
+  }
+}
+Failed to click on locator: locator('#addNewRecordButton')
+Failed to click on locator: locator('#addNewRecordButton')
+❌ Unexpected error for valid record: alice.smith@example.com locator.waitFor: Target page, context or browser has been closed
+Call log:
+  - waiting for locator('#addNewRecordButton') to be visible
+
+    at ElementUtils.click (D:\withdraw\PlayWright\src\helper\utils\element-utils.ts:21:21)
+    at ElementsPage.addNewRecord (D:\withdraw\PlayWright\src\pages\elementsPage.ts:20:22)
+    at D:\withdraw\PlayWright\src\tests\elements.test.ts:195:32
+    at D:\withdraw\PlayWright\src\tests\elements.test.ts:191:14

@@ -12,17 +12,17 @@ export class BookStorePage {
   }
 
   async navigateToBookStore() {
-    await this.utils.click(this.page.locator(BookStoreLocators.bookStoreAppButton));
+    await this.utils.waitAndClick(this.page.locator(BookStoreLocators.bookStoreAppButton));
   }
 
   async navigateToLoginPage() {
-    await this.utils.click(this.page.locator(BookStoreLocators.loginButton));
+    await this.utils.waitAndClick(this.page.locator(BookStoreLocators.loginButton));
   }
 
   async login(username: string, password: string) {
-    await this.utils.type(this.page.locator(BookStoreLocators.usernameInput), username);
-    await this.utils.type(this.page.locator(BookStoreLocators.passwordInput), password);
-    await this.utils.click(this.page.locator(BookStoreLocators.loginSubmitButton));
+    await this.utils.waitAndType(this.page.locator(BookStoreLocators.usernameInput), username);
+    await this.utils.waitAndType(this.page.locator(BookStoreLocators.passwordInput), password);
+    await this.utils.waitAndClick(this.page.locator(BookStoreLocators.loginSubmitButton));
   }
 
   async isLogoutButtonVisible(): Promise<boolean> {
@@ -30,7 +30,7 @@ export class BookStorePage {
   }
 
   async logout() {
-    await this.utils.click(this.page.locator(BookStoreLocators.logoutButton));
+    await this.utils.waitAndClick(this.page.locator(BookStoreLocators.logoutButton));
   }
 
   async isLoginButtonVisible(): Promise<boolean> {

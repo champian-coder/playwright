@@ -1,0 +1,2 @@
+Testing login with username: invalidUser1
+Login failed with username: invalidUser1

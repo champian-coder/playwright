@@ -1,0 +1,3 @@
+Failed to click on locator: locator('#login')
+Failed to type into locator: locator('#userName')
+Failed to click on locator: locator('text="Book Store Application"')
