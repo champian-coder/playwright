@@ -1,0 +1,88 @@
+Failed to click on locator: locator('text="Book Store Application"')
+Error during login test for validUser1: locator.click: Target page, context or browser has been closed
+Call log:
+  - waiting for locator('text="Book Store Application"')
+    - locator resolved to <h5>Book Store Application</h5>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+
+    at ElementUtils.click (D:\withdraw\PlayWright\src\helper\utils\element-utils.ts:30:21)
+    at BookStorePage.navigateToBookStore (D:\withdraw\PlayWright\src\pages\bookStorePage.ts:19:5)
+    at D:\withdraw\PlayWright\src\tests\elements.test.ts:144:11 {
+  [Symbol(step)]: {
+    stepId: 'pw:api@17',
+    location: {
+      file: 'D:\\withdraw\\PlayWright\\src\\helper\\utils\\element-utils.ts',
+      line: 30,
+      column: 21,
+      function: 'ElementUtils.click'
+    },
+    category: 'pw:api',
+    title: 'locator.click(text="Book Store Application")',
+    apiName: 'locator.click',
+    params: { selector: 'text="Book Store Application"', strict: true },
+    boxedStack: undefined,
+    steps: [],
+    complete: [Function: complete],
+    endWallTime: 1737648826448,
+    error: {
+      message: 'Error: locator.click: Target page, context or browser has been closed\n' +
+        'Call log:\n' +
+        `\x1B[2m  - waiting for locator('text="Book Store Application"')\x1B[22m\n` +
+        '\x1B[2m    - locator resolved to <h5>Book Store Application</h5>\x1B[22m\n' +
+        '\x1B[2m  - attempting click action\x1B[22m\n' +
+        '\x1B[2m    - waiting for element to be visible, enabled and stable\x1B[22m\n' +
+        '\x1B[2m    - element is visible, enabled and stable\x1B[22m\n' +
+        '\x1B[2m    - scrolling into view if needed\x1B[22m\n' +
+        '\x1B[2m    - done scrolling\x1B[22m\n',
+      stack: 'Error: locator.click: Target page, context or browser has been closed\n' +
+        'Call log:\n' +
+        `\x1B[2m  - waiting for locator('text="Book Store Application"')\x1B[22m\n` +
+        '\x1B[2m    - locator resolved to <h5>Book Store Application</h5>\x1B[22m\n' +
+        '\x1B[2m  - attempting click action\x1B[22m\n' +
+        '\x1B[2m    - waiting for element to be visible, enabled and stable\x1B[22m\n' +
+        '\x1B[2m    - element is visible, enabled and stable\x1B[22m\n' +
+        '\x1B[2m    - scrolling into view if needed\x1B[22m\n' +
+        '\x1B[2m    - done scrolling\x1B[22m\n' +
+        '\n' +
+        '    at ElementUtils.click (D:\\withdraw\\PlayWright\\src\\helper\\utils\\element-utils.ts:30:21)\n' +
+        '    at BookStorePage.navigateToBookStore (D:\\withdraw\\PlayWright\\src\\pages\\bookStorePage.ts:19:5)\n' +
+        '    at D:\\withdraw\\PlayWright\\src\\tests\\elements.test.ts:144:11',
+      cause: undefined
+    }
+  }
+}
+Failed to click on locator: locator('text="Book Store Application"')
+Error during login test for validUser2: locator.click: Target page, context or browser has been closed
+Call log:
+  - waiting for locator('text="Book Store Application"')
+    - locator resolved to <h5>Book Store Application</h5>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+
+    at ElementUtils.click (D:\withdraw\PlayWright\src\helper\utils\element-utils.ts:30:21)
+    at BookStorePage.navigateToBookStore (D:\withdraw\PlayWright\src\pages\bookStorePage.ts:19:5)
+    at D:\withdraw\PlayWright\src\tests\elements.test.ts:144:11
+Failed to click on locator: locator('text="Book Store Application"')
+Error during login test for invalidUser: locator.click: Target page, context or browser has been closed
+Call log:
+  - waiting for locator('text="Book Store Application"')
+    - locator resolved to <h5>Book Store Application</h5>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is not stable
+  - retrying click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+
+    at ElementUtils.click (D:\withdraw\PlayWright\src\helper\utils\element-utils.ts:30:21)
+    at BookStorePage.navigateToBookStore (D:\withdraw\PlayWright\src\pages\bookStorePage.ts:19:5)
+    at D:\withdraw\PlayWright\src\tests\elements.test.ts:144:11
