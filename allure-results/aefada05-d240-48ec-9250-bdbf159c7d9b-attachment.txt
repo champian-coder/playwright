@@ -1,3 +1,0 @@
-Failed to click on locator: locator('#login')
-Failed to click on locator: locator('#login')
-Failed to click on locator: locator('#login')

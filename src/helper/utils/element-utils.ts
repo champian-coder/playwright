@@ -90,4 +90,47 @@ export class ElementUtils {
       throw error;
     }
   }
+  
+  async getText(locator: Locator, timeout = 10000): Promise<string> {
+    try {
+      await locator.waitFor({ state: 'visible', timeout });
+      return await locator.innerText();
+    } catch (error) {
+      console.error(`Failed to get text from locator: ${locator}`);
+      throw error;
+    }
+  }
+  
+  async isElementVisible(locator: Locator, timeout = 10000): Promise<boolean> {
+    try {
+      await locator.waitFor({ state: 'visible', timeout });
+      return true;
+    } catch {
+      return false;
+    }
+  }
+  async uploadFile(locator: Locator, filePath: string) {
+    try {
+      await locator.setInputFiles(filePath);
+      console.log(`Uploaded file: ${filePath}`);
+    } catch (error) {
+      console.error(`Failed to upload file: ${filePath}`);
+      throw error;
+    }
+  }
+
+  async downloadFile(downloadButton: Locator, downloadPath: string) {
+    try {
+      const [download] = await Promise.all([
+        this.page.waitForEvent('download'),
+        downloadButton.click()
+      ]);
+      const suggestedPath = download.suggestedFilename();
+      await download.saveAs(`${downloadPath}/${suggestedPath}`);
+      console.log(`File downloaded to: ${downloadPath}/${suggestedPath}`);
+    } catch (error) {
+      console.error(`Failed to download file to: ${downloadPath}`);
+      throw error;
+    }
+  }
 }

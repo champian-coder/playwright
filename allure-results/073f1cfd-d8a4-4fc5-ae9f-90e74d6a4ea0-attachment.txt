@@ -1,8 +1,0 @@
-Clicked on locator: locator('text=Elements')
-Pausing for 1000ms...
-Clicked on locator: locator('text=Web Tables')
-Pausing for 1000ms...
-Adding record: {"firstName":"John","lastName":"Doe","email":"john.doe@example.com","age":"30","salary":"50000","department":"Engineering","isValid":true}
-Adding record: {"firstName":"Jane","lastName":"","email":"jane.doe@example.com","age":"25","salary":"45000","department":"HR","isValid":false}
-Adding record: {"firstName":"Alice","lastName":"Smith","email":"alice.smith@example.com","age":"35","salary":"55000","department":"Finance","isValid":true}
-Handled expected failure for invalid record: jane.doe@example.com

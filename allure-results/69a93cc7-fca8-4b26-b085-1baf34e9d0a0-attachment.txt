@@ -1,2 +1,0 @@
-Failed to type into locator: locator('#password')
-Failed to type into locator: locator('#userName')

@@ -1,14 +1,5 @@
 [
     {
-      "firstName": "John",
-      "lastName": "Doe",
-      "email": "john.doe@example.com",
-      "age": "30",
-      "salary": "50000",
-      "department": "Engineering",
-      "isValid": true
-    },
-    {
       "firstName": "Jane",
       "lastName": "",
       "email": "jane.doe@example.com",
