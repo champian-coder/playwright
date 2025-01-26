@@ -18,10 +18,10 @@ export class ElementUtils {
     try {
       await locator.waitFor({ state: 'attached', timeout }); // Changed to 'attached' for faster interaction
       await locator.click();
-      console.log(`Clicked on locator: ${locator}`);
+      console.log(`Clicked on locator: ${locator.toString()}`);
       if (delay > 0) await this.pause(delay);
     } catch (error) {
-      console.error(`Failed to click on locator: ${locator}`);
+      console.error(`Failed to click on locator: ${locator.toString()}`);
       throw error;
     }
   }
@@ -30,10 +30,10 @@ export class ElementUtils {
     try {
       await locator.waitFor({ state: 'attached', timeout }); // Changed to 'attached'
       await locator.fill(text);
-      console.log(`Typed "${text}" into locator: ${locator}`);
+      console.log(`Typed "${text}" into locator: ${locator.toString()}`);
       if (delay > 0) await this.pause(delay);
     } catch (error) {
-      console.error(`Failed to type into locator: ${locator}`);
+      console.error(`Failed to type into locator: ${locator.toString()}`);
       throw error;
     }
   }
@@ -41,10 +41,10 @@ export class ElementUtils {
   async waitForElement(locator: Locator, state: 'visible' | 'hidden' | 'attached' | 'detached', timeout = 10000, delay = 0) {
     try {
       await locator.waitFor({ state, timeout });
-      console.log(`Element ${locator} is ${state}`);
+      console.log(`Element ${locator.toString()} is ${state}`);
       if (delay > 0) await this.pause(delay);
     } catch (error) {
-      console.error(`Failed to wait for locator: ${locator} to be ${state}`);
+      console.error(`Failed to wait for locator: ${locator.toString()} to be ${state}`);
       throw error;
     }
   }
@@ -52,10 +52,10 @@ export class ElementUtils {
   async waitForVisibility(locator: Locator, timeout = 10000, delay = 0) {
     try {
       await locator.waitFor({ state: 'visible', timeout });
-      console.log(`Element ${locator} is visible`);
+      console.log(`Element ${locator.toString()} is visible`);
       if (delay > 0) await this.pause(delay);
     } catch (error) {
-      console.error(`Failed to wait for locator: ${locator} to be visible`);
+      console.error(`Failed to wait for locator: ${locator.toString()} to be visible`);
       throw error;
     }
   }
@@ -63,10 +63,10 @@ export class ElementUtils {
   async waitForInvisibility(locator: Locator, timeout = 10000, delay = 0) {
     try {
       await locator.waitFor({ state: 'hidden', timeout });
-      console.log(`Element ${locator} is hidden`);
+      console.log(`Element ${locator.toString()} is hidden`);
       if (delay > 0) await this.pause(delay);
     } catch (error) {
-      console.error(`Failed to wait for locator: ${locator} to be hidden`);
+      console.error(`Failed to wait for locator: ${locator.toString()} to be hidden`);
       throw error;
     }
   }
@@ -76,7 +76,7 @@ export class ElementUtils {
       await this.waitForVisibility(locator, timeout);
       await this.click(locator, timeout, delay);
     } catch (error) {
-      console.error(`Failed to wait and click on locator: ${locator}`);
+      console.error(`Failed to wait and click on locator: ${locator.toString()}`);
       throw error;
     }
   }
@@ -86,7 +86,7 @@ export class ElementUtils {
       await this.waitForVisibility(locator, timeout);
       await this.type(locator, text, timeout, delay);
     } catch (error) {
-      console.error(`Failed to wait and type into locator: ${locator}`);
+      console.error(`Failed to wait and type into locator: ${locator.toString()}`);
       throw error;
     }
   }
@@ -96,7 +96,7 @@ export class ElementUtils {
       await locator.waitFor({ state: 'visible', timeout });
       return await locator.innerText();
     } catch (error) {
-      console.error(`Failed to get text from locator: ${locator}`);
+      console.error(`Failed to get text from locator: ${locator.toString()}`);
       throw error;
     }
   }
@@ -112,9 +112,9 @@ export class ElementUtils {
   async uploadFile(locator: Locator, filePath: string) {
     try {
       await locator.setInputFiles(filePath);
-      console.log(`Uploaded file: ${filePath}`);
+      console.log(`Uploaded file: ${filePath} to locator: ${locator.toString()}`);
     } catch (error) {
-      console.error(`Failed to upload file: ${filePath}`);
+      console.error(`Failed to upload file: ${filePath} to locator: ${locator.toString()}`);
       throw error;
     }
   }
@@ -133,4 +133,51 @@ export class ElementUtils {
       throw error;
     }
   }
+
+  async acceptAlert( delay = this.defaultDelay) {
+    try {
+      const alert = await this.page.waitForEvent('dialog');
+      if (delay > 0) await this.pause(delay);
+      console.log(`Accepting alert with message: ${alert.message()}`);
+      await alert.accept();
+    } catch (error) {
+      console.error('Failed to accept alert');
+      throw error;
+    }
+  }
+
+  async dismissAlert(delay = this.defaultDelay) {
+    try {
+      const alert = await this.page.waitForEvent('dialog');
+      console.log(`Dismissing alert with message: ${alert.message()}`);
+      if (delay > 0) await this.pause(delay);
+      await alert.dismiss();
+    } catch (error) {
+      console.error('Failed to dismiss alert');
+      throw error;
+    }
+  }
+
+  async getAlertText(): Promise<string> {
+    try {
+      const alert = await this.page.waitForEvent('dialog');
+      console.log(`Alert message: ${alert.message()}`);
+      return alert.message();
+    } catch (error) {
+      console.error('Failed to get alert text');
+      throw error;
+    }
+  }
+
+  async enterAlertText(text: string) {
+    try {
+      const alert = await this.page.waitForEvent('dialog');
+      console.log(`Entering text "${text}" in prompt alert`);
+      await alert.accept(text);
+    } catch (error) {
+      console.error(`Failed to enter text "${text}" into alert`);
+      throw error;
+    }
+  }
+
 }

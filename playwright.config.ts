@@ -1,5 +1,6 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test';
 import * as dotenv from 'dotenv';
+import { AllureReporter } from 'allure-playwright';
 
 // Load environment variables from .env
 dotenv.config();
@@ -16,6 +17,6 @@ export default defineConfig({
   timeout: 60000, // Set timeout to 60 seconds
   reporter: [
     ['list'], // Console output
-    ['allure-playwright', { outputFolder: 'allure-results' }], // Allure results
+    ['allure-playwright'], // Allure results
   ],
 });

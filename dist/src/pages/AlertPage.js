@@ -9,45 +9,54 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BookStorePage = void 0;
+exports.AlertsPage = void 0;
 const element_utils_1 = require("../helper/utils/element-utils");
-const bookStoreLocators_1 = require("../objectRepo/bookStoreLocators");
-class BookStorePage {
+const alertsFrameWindowsLocators_1 = require("../objectRepo/alertsFrameWindowsLocators");
+class AlertsPage {
     constructor(page) {
         this.page = page;
         this.utils = new element_utils_1.ElementUtils(page);
     }
-    navigateToBookStore() {
+    navigateToAlertsPage() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.utils.waitAndClick(this.page.locator(bookStoreLocators_1.BookStoreLocators.bookStoreAppButton));
+            yield this.utils.waitAndClick(this.page.locator(alertsFrameWindowsLocators_1.AlertLocators.alertsFrameWindowsMenu));
+            yield this.utils.waitAndClick(this.page.locator(alertsFrameWindowsLocators_1.AlertLocators.alertsMenu));
         });
     }
-    navigateToLoginPage() {
+    clickAlertButton() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.utils.waitAndClick(this.page.locator(bookStoreLocators_1.BookStoreLocators.loginButton));
+            yield this.utils.waitAndClick(this.page.locator(alertsFrameWindowsLocators_1.AlertLocators.alertButton));
         });
     }
-    login(username, password) {
+    clickConfirmButton() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.utils.waitAndType(this.page.locator(bookStoreLocators_1.BookStoreLocators.usernameInput), username);
-            yield this.utils.waitAndType(this.page.locator(bookStoreLocators_1.BookStoreLocators.passwordInput), password);
-            yield this.utils.waitAndClick(this.page.locator(bookStoreLocators_1.BookStoreLocators.loginSubmitButton));
+            yield this.utils.waitAndClick(this.page.locator(alertsFrameWindowsLocators_1.AlertLocators.confirmButton));
         });
     }
-    isLogoutButtonVisible() {
+    clickPromptButton() {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.page.locator(bookStoreLocators_1.BookStoreLocators.logoutButton).isVisible();
+            yield this.utils.waitAndClick(this.page.locator(alertsFrameWindowsLocators_1.AlertLocators.promptButton));
         });
     }
-    logout() {
+    acceptAlert() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.utils.waitAndClick(this.page.locator(bookStoreLocators_1.BookStoreLocators.logoutButton));
+            yield this.utils.acceptAlert();
         });
     }
-    isLoginButtonVisible() {
+    dismissAlert() {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.page.locator(bookStoreLocators_1.BookStoreLocators.loginButton).isVisible();
+            yield this.utils.dismissAlert();
+        });
+    }
+    getAlertMessage() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.utils.getAlertText();
+        });
+    }
+    enterTextInPromptAlert(text) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.utils.enterAlertText(text);
         });
     }
 }
-exports.BookStorePage = BookStorePage;
+exports.AlertsPage = AlertsPage;

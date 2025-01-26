@@ -9,11 +9,19 @@ exports.BookStoreLocators = void 0;
 //     loginSubmitButton: '#login',
 //     logoutButton: '#submit:has-text("Log out")',
 //   };
+// export const BookStoreLocators = {
+//   bookStoreAppButton: 'text="Book Store Application"',
+//   loginButton: '#login',
+//   logoutButton: '#submit',
+//   usernameInput: '#userName',
+//   passwordInput: '#password',
+//   loginSubmitButton: '#login',
+// };
 exports.BookStoreLocators = {
-    bookStoreAppButton: 'text=Book Store Application',
-    loginButton: '#login', // Target the button directly using its id
+    bookStoreAppButton: 'text="Book Store Application"',
+    loginButton: '#login',
     usernameInput: '#userName',
     passwordInput: '#password',
-    loginSubmitButton: '#login', // Assuming this is the same button for submit
-    logoutButton: '#submit:has-text("Log out")',
+    loginSubmitButton: '#login',
+    logoutButton: '#submit',
 };

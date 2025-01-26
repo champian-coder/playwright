@@ -45,7 +45,7 @@ exports.default = (0, test_1.defineConfig)({
         baseURL: process.env.BASEURL || 'https://example.com', // Base URL
         viewport: { width: 1280, height: 720 }, // Default viewport size
     },
-    retries: 0, // Retry failed tests once
+    retries: 1, // Retry failed tests once
     timeout: 60000, // Set timeout to 60 seconds
     reporter: [
         ['list'], // Console output
